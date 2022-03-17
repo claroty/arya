@@ -1,5 +1,5 @@
-# Arya - The New Tailor-Made EICAR Using Yara
-Arya is a unique tool that produces pseudo-malicious files meant to trigger YARA rules. You can think of it like a reverse YARA because it does exactly the opposite.
+# Arya - The Reverse YARA 
+Arya is a unique tool that produces pseudo-malicious files meant to trigger YARA rules. You can think of it like a reverse YARA because it does exactly the opposite - it creates files that matches your rules.
 
 ![Arya Demo](img/demo.gif "Ayra Demo")
 
