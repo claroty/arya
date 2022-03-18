@@ -1,6 +1,8 @@
 # Arya - The Reverse YARA 
 Arya is a unique tool that produces pseudo-malicious files meant to trigger YARA rules. You can think of it like a reverse YARA because it does exactly the opposite - it creates files that matches your rules.
 
+You can read more about Arya and how it works in our [blog](https://claroty.com/2022/03/16/blog-research-arya-the-new-tailor-made-eicar-using-yara/).
+
 ![Arya Demo](img/demo.gif "Ayra Demo")
 
 ## Intro
@@ -10,8 +12,6 @@ YARA rules are an essential tool for security researchers that help them identif
 But what if we don’t have the malicious file we are writing rules for? What if we want to create the “malware” file based on YARA as input? That's why we developed Arya. Arya can be used to generate custom-made, pseudo-malware files to trigger antivirus (AV) and endpoint detection and response (EDR) tools just like the good old EICAR test file. Our tool has a number of use cases, including malware research, YARA rule QA testing, and pressure testing a network with code samples built from YARA rules. 
 
 ![](img/ex1.png "")
-
-You can read more about Arya and how it works in our blog.
 
 ## More details
 Arya is a first-of-its-kind tool; it produces pseudo-malicious files meant to trigger YARA rules. The tool reads the given YARA (.yar suffix) files, parses their syntax using Avast's yaramod package—the YARA parsing engine used in this research—and builds a pseudo “malware” file. Carefully placing desired bytes from the YARA rules to trigger the input rules. 
