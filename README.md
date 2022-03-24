@@ -48,7 +48,13 @@ Arya can also be used as part of incident response training—similar to purple-
 
 ## How to use Arya
 ### Step 1
-Clone this repo and install all requirements
+```bash
+sudo apt update
+sudo apt install yara cmake
+git clone https://github.com/claroty/arya
+cd arya
+pip3 install -r requirements.txt
+```
 
 ### Step 2
 Run Arya considering the following args:
@@ -57,3 +63,9 @@ Run Arya considering the following args:
 * `--header` - Adds the first 2048 bytes of conficker at the start of the file.
 * `-r` - Run recursively on all of the files under \[INPUT_DIRECTORY]
 * `-m [MALWARE_FILE]` - Use the file \[INPUT_DIRECTORY] as the base for the output.
+
+### Example
+
+```bash
+python3 src/arya.py -i example_rules/ -o MalwareAryaDefault.exe
+```
