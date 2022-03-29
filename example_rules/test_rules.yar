@@ -68,3 +68,21 @@ rule TestHexAlternation {
         condition:
            $hex_string1
 }
+
+/*
+ * Tests for the base64 placer
+ */
+rule TestBase64 {
+        strings:
+           $b64_string1 = "I am base64 ascii" base64
+
+        condition:
+           $b64_string1
+}
+rule TestBase64wide {
+        strings:
+           $b64w_string1 = "I am base64 wide" base64wide
+
+        condition:
+           $b64w_string1
+}

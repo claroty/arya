@@ -5,6 +5,7 @@ import re
 import random
 import binascii
 import sys
+import base64
 from pathlib import Path
 
 import colorama
@@ -58,6 +59,11 @@ class RuleReverser:
 
     def _yara_string_to_bytes(self, string):
         if string.is_plain:
+            if string.is_base64:
+                print(string)
+                return base64.b64encode(string.pure_text)
+            if string.is_base64_wide:
+                return str(base64.b64encode(string.pure_text)).encode("utf-16")
             if string.is_wide:
                 return str(string.pure_text).encode("utf-16")
             if string.is_ascii:
@@ -65,8 +71,6 @@ class RuleReverser:
         if string.is_hex:
             return self._hex_string_to_bytes(string)
         if string.is_regexp:
-            pass
-        if string.is_base64:
             pass
 
     def _of_expr_to_string(self, count, iterable, string_mapping):
