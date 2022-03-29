@@ -60,7 +60,6 @@ class RuleReverser:
     def _yara_string_to_bytes(self, string):
         if string.is_plain:
             if string.is_base64:
-                print(string)
                 return base64.b64encode(string.pure_text)
             if string.is_base64_wide:
                 return str(base64.b64encode(string.pure_text)).encode("utf-16")
