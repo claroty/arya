@@ -10,6 +10,7 @@ from pathlib import Path
 
 import colorama
 import yaramod as ym
+from xeger import Xeger
 
 from file_mapper import FileMapper
 from ast_observer import YaraAstObserver
@@ -70,7 +71,10 @@ class RuleReverser:
         if string.is_hex:
             return self._hex_string_to_bytes(string)
         if string.is_regexp:
-            pass
+            if string.is_wide:
+                return Xeger(limit=10).xeger(string.pure_text).encode("utf-16")
+            if string.is_ascii:
+                return Xeger(limit=10).xeger(string.pure_text).encode("utf-8")
 
     def _of_expr_to_string(self, count, iterable, string_mapping):
         if isinstance(iterable, ym.ThemExpression):

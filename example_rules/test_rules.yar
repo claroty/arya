@@ -86,3 +86,17 @@ rule TestBase64wide {
         condition:
            $b64w_string1
 }
+
+
+/*
+ * Tests for the regexp placer
+ */
+rule TestRegExp
+{
+    strings:
+        $re1 = /wow[0-9a-fA-F]{5}\d\w......./s
+        $re2 = /anOTher\s+(One|regEx|tEst)/i
+
+    condition:
+        $re1 and $re2
+}
