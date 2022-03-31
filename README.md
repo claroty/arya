@@ -35,12 +35,12 @@ Arya can also be used as part of incident response training—similar to purple-
 **Supported**
 - Strings - ASCII, Wide, Base64, Base64wide
 - Hex Streams (including Jumps and Alternations)
+- Regular Expressions - Generates a string to match the inverse of regexes.
 - At operator
 - Int Functions (uint32, int16be, etc.)
 - Of operator (e.g. all of ($s*))
 
 **Planned for the next updates**
-- RegEx type support
 - FileSize Operator
 - Range Operator
 - String Count Operator
