@@ -33,7 +33,7 @@ Arya can also be used as part of incident response training—similar to purple-
 
 ## Currently Supported Yara functionalities
 **Supported**
-- Strings - ASCII, Wide, Base64, Base64wide
+- Strings - ASCII, Wide, Base64, Base64wide, XOR
 - Hex Streams (including Jumps and Alternations)
 - Regular Expressions - Generates a string to match the inverse of regexes.
 - At operator

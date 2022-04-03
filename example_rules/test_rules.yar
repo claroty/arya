@@ -100,3 +100,15 @@ rule TestRegExp
     condition:
         $re1 and $re2
 }
+
+/*
+ * Tests for the xor string placer
+ */
+rule TestXorString
+{
+    strings:
+        $x1 = "xor me xor me!!" xor
+
+    condition:
+        $x1
+}
