@@ -28,7 +28,7 @@ def _add_func_pre_and_epi(func):
 class FileMapper:
     def __init__(self, add_pe_header, malware_file):
         self._byte_mapping = []
-        self._read_malware(malware_file)
+        self._malware_bytes = self._read_malware(malware_file)
         if add_pe_header:
             self._get_pe_header()
 
@@ -66,9 +66,9 @@ class FileMapper:
     def _read_malware(self, file_name):
         if file_name:
             with open(file_name, "rb") as malware_file:
-                self._malware_bytes = malware_file.read()
+                 return malware_file.read()
         else:
-            self._malware_bytes = CONFICKER_FIRST_4KB
+            return CONFICKER_FIRST_4KB
 
     @_add_func_pre_and_epi
     def generate_random_x86_code(self, length):

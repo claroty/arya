@@ -153,7 +153,11 @@ class RuleReverser:
                     continue
                 self._file_mapper.place(instructions_dict["var"], int(min_offset))
 
-        random_amount_of_code = self._file_mapper.generate_random_x86_code(random.randint(1024, self._file_mapper.get_file_len()))
+        file_len = self._file_mapper.get_file_len()
+        if file_len > 1024:
+            random_amount_of_code = self._file_mapper.generate_random_x86_code(random.randint(1024, file_len))
+        else:
+            random_amount_of_code = []
         self._file_mapper.append(random_amount_of_code)
         self._file_mapper.append(free_strings)
         self._file_mapper.fill_empty_with_code()
